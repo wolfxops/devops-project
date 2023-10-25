@@ -7,19 +7,16 @@ on:
 
 jobs:
   build-ami:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Install Packer
-        run: |
-          wget https://releases.hashicorp.com/packer/1.7.4/packer_1.7.4_linux_amd64.zip
-          unzip packer_1.7.4_linux_amd64.zip
-          sudo mv packer /usr/local/bin/
-          packer --version
-        shell: bash
+      - name: Set up Packer
+        uses: hashicorp/setup-packer@v1.9
+        with:
+          packer-version: latest
 
       - name: Set up AWS Credentials
         run: |
