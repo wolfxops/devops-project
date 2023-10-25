@@ -1,0 +1,25 @@
+name: Build Prerequisite Image with Packer
+
+on:
+  push:
+    branches:
+      - implement
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Packer
+        uses: hashicorp/setup-packer@v1
+        with:
+          packer-version: 1.8.6
+
+      - name: Build Prerequisite Image
+        run: packer build prerequisite-image.json
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
