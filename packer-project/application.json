@@ -2,6 +2,7 @@
     "builders": [
       {
         "type": "amazon-ebs",
+        "ssh_private_key_file": "/home/devops/Documents/private/ssh/packer.pem",
         "region": "us-east-1",
         "source_ami": "ami-0ff7f29dc49423a92", 
         "instance_type": "t2.micro",
