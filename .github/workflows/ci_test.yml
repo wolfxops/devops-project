@@ -22,7 +22,7 @@ jobs:
         dotnet-version: 6.0.416
 
     - name: Build
-      run: dotnet build HelloWorldApp/HelloWorld.csproj
+      run: dotnet build HelloWorldApp/HelloWorldApp.csproj
 
     - name: Test
-      run: dotnet test HelloWorldApp/HelloWorld.csproj
+      run: dotnet test HelloWorldApp/HelloWorldApp.csproj
