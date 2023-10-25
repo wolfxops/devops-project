@@ -6,6 +6,7 @@
         "source_ami": "ami-0ff7f29dc49423a92", 
         "instance_type": "t2.micro",
         "ssh_username": "Administrator",
+        "ssh_timeout": "15m",
         "ami_name": "my-custom-image-{{timestamp}}"
       }
     ],
