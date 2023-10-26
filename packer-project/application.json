@@ -20,7 +20,7 @@
   "provisioners": [
     {
       "type": "shell",
-      "script": "prerequisites.ps1" 
+      "script": "prerequisites.ps1"
     }
   ]
 }
