@@ -3,15 +3,7 @@
     {
       "type": "amazon-ebs",
       "region": "us-east-1",
-      "source_ami": "ami-0ff7f29dc49423a92", 
-      "instance_type": "t2.micro",
-      "ssh_username": "Administrator",
-      "ami_name": "prerequisite-image-{{timestamp}}"
-    },
-    {
-      "type": "amazon-ebs",
-      "region": "us-east-1",
-      "source_ami": "ami-0ff7f29dc49423a92", 
+      "source_ami": "ami-0ff7f29dc49423a92",
       "instance_type": "t2.micro",
       "ssh_username": "Administrator",
       "ami_name": "final-app-image-{{timestamp}}"
@@ -19,8 +11,8 @@
   ],
   "provisioners": [
     {
-      "type": "shell",
-      "script": "prerequisites.ps1"
+      "type": "powershell",
+      "script": "install-application.ps1"
     }
   ]
 }
