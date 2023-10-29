@@ -5,11 +5,25 @@
         "region": "us-east-1",
         "source_ami": "ami-0ff7f29dc49423a92",
         "instance_type": "t2.micro",
-        "ssh_username": "Administrator",
-        "ami_name": "Application-{{timestamp}}"
+        "winrm_username": "Administrator",
+        "ami_name": "Prerequisite-{{timestamp}}",
+        "access_key" : "{{ user `aws_access_key` }}",
+        "secret_key" : "{{ user `aws_secret_key` }}",
+        "communicator"        : "winrm",
+        "user_data_file"      : "./scripts/bootstrap_win.txt",
+        "subnet_filter" : {
+          "filters": {
+            "tag:Class": "default"
+          },
+          "most_free"         : true,
+          "random"            : false
+        }
       }
     ],
     "provisioners": [
+      {
+        "type"                : "windows-restart"
+      },
       {
             "type": "file",
             "source": "../HelloWorldApp", 
